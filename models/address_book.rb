@@ -23,9 +23,11 @@ class AddressBook
 	entries.each do |entry|
 	  if name != entry.name
 	    break
+	  else
+	   entries.delete(entry)	
 	  end
 	  index +=1
 	end
-	entries.delete(index, Entry.name)  #(index, Entry.new(name,phone_number, email))  #entry.name[index] or Entry[index] or entry.name[index]
+	#entries.delete(entries.index(entry))  #(index, Entry.new(name,phone_number, email))  #entry.name[index] or Entry[index] or entry.name[index]
   end
 end
