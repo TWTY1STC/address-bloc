@@ -14,7 +14,8 @@ class MenuController
        puts "2 - Create new entry"
        puts "3 - Search for an entry"
        puts "4 - Import entries from CSV"
-       puts "5 - Exit"
+       puts "5 - Delete ALL entries"
+       puts "6 - Exit"
        print "Enter your selection: "
        
        selection = gets.to_i
@@ -39,8 +40,13 @@ class MenuController
             system "clear"
             read_csv
             main_menu
-        
+            
         when 5
+            system "clear"
+            demolish_all_entries
+            main_menu
+        
+        when 6
             puts "Good-bye!"
             
             exit(0) #signals program to exit w/o error
@@ -110,6 +116,10 @@ class MenuController
             read_csv
         end
     end
+    
+    def demolish_all_entries
+        entries.clear
+        puts "All entries in CSV file have been deleted"
 
     def delete_entry(entry)
         address_book.entries.delete(entry)
